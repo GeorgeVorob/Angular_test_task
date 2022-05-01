@@ -1,1 +1,7 @@
 <p>planet-list works!</p>
+
+<div *ngFor="let planet of planets">
+    <a [routerLink]="['/planet-view', planet.id]">
+        {{planet.name}}
+    </a>
+</div>
