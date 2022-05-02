@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Planet, Resident } from '../models/models';
 import { SWAPIService } from '../swapi.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-planet-view',
@@ -11,9 +12,14 @@ import { SWAPIService } from '../swapi.service';
 export class PlanetViewComponent implements OnInit {
   planet: Planet | undefined;
   residentsInfo: Resident[] = [];
-  constructor(private route: ActivatedRoute, private api: SWAPIService) {
+  constructor(private route: ActivatedRoute, private api: SWAPIService) { 
+    let a = this.form.get('gender');
 
   }
+
+  form = new FormGroup({
+    gender: new FormControl('all'),
+  });
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;

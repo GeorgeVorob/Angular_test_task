@@ -1,6 +1,22 @@
-<p>planet-view works!</p>
+<a [routerLink]="'/'">
+    back
+</a>
 
-<!-- TODO: handle no-residents -->
-<div *ngFor="let resident of residentsInfo">
-    <h1>{{resident.name}}</h1>
+<div *ngIf="residentsInfo.length > 0">
+    <form [formGroup]="form">
+        <input type="radio" formControlName="gender" value="all"> all
+        <input type="radio" formControlName="gender" value="male"> male
+        <input type="radio" formControlName="gender" value="female"> female
+        <input type="radio" formControlName="gender" value="n/a"> n/a
+    </form>
+    <div *ngFor="let resident of residentsInfo">
+        <div *ngIf="form.value.gender == 'all' || resident.gender == form.value.gender">
+            <h3>{{resident.name}}</h3>
+            <p>Gender: {{resident.gender}}</p>
+        </div>
+    </div>
+</div>
+        
+<div *ngIf="residentsInfo.length == 0">
+    There are no residents!
 </div>
