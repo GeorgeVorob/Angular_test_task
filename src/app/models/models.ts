@@ -28,7 +28,7 @@ export type Resident = {
     gender: string,
     homeworld: string,
     films: string[],
-    species: [],
+    species: string[],
     vehicles: string[],
     starships: string[],
     created: string,

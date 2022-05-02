@@ -1,7 +1,15 @@
-<p>planet-list works!</p>
-
-<div *ngFor="let planet of planets">
-    <a [routerLink]="['/planet-view', planet.id]">
-        {{planet.name}}
-    </a>
+<div class="list">
+    <ng-container *ngFor="let planet of planets">
+        <a [routerLink]="['/planet-view', planet.id]">
+            <div class="list-element">
+                <h4>{{planet.name}}</h4>
+                <ul class="list-element-stats-container">
+                    <li>Диаметр - {{planet.diameter}} км</li>
+                    <li>Климат - {{planet.climate}}</li>
+                    <li>Поверхность - {{planet.terrain}}</li>
+                    <li>Население - {{planet.population}}</li>
+                </ul>
+            </div>
+        </a>
+    </ng-container>
 </div>
