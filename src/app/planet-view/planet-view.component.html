@@ -1,7 +1,25 @@
 
+<a [routerLink]="'/'">
+    <button class="back-button">
+        Назад
+    </button>
+</a>
 
 <div *ngIf="residentsInfo.length > 0">
     <div class="list">
+        <div class="list-element">
+            <h3>Информация о {{planet?.name}}:</h3>
+            <ul>
+                <li>Период вращения - {{planet?.rotation_period}}</li>
+                <li>Орбитальный период - {{planet?.orbital_period}}</li>
+                <li>Диаметр - {{planet?.diameter}}</li>
+                <li>Климат - {{planet?.climate}}</li>
+                <li>Гравитация - {{planet?.gravity}}</li>
+                <li>Поверхность - {{planet?.terrain}}</li>
+                <li>Вода на поверхности - {{planet?.surface_water}}</li>
+                <li>Население - {{planet?.population}}</li>
+            </ul>
+        </div>
         <div class="list-element">
         <form [formGroup]="form" style="display:inline-block;">
             <input type="radio" formControlName="gender" value="all"> all
@@ -9,12 +27,6 @@
             <input type="radio" formControlName="gender" value="female"> female
             <input type="radio" formControlName="gender" value="n/a"> n/a
         </form>
-
-        <a [routerLink]="'/'">
-            <button class="back-button" style="float:right;margin-left: 10px;">
-                Назад
-            </button>
-        </a>
         </div>
 
 
@@ -32,6 +44,6 @@
     </div>
 </div>
         
-<div *ngIf="residentsInfo.length == 0">
-    There are no residents!
+<div *ngIf="residentsInfo.length == 0" style="color: white;">
+    На планете отсутствуют обитатели.
 </div>

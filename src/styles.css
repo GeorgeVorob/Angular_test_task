@@ -45,6 +45,7 @@ a:active { text-decoration: none; }
     border-radius: 5px;
     transition: 0.3s;
     border: none;
+    font-size: larger;
 }
 
 .back-button:hover {
